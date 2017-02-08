@@ -3,10 +3,7 @@ Imports Microsoft.Office.Interop.Excel
 
 Public Class frmWorkExcel
 
-    'Private xlApp As Excel.Application
-    'Private xlLlibre As Excel.Workbook
-    'Private xlFulla As Excel.Worksheet
-
+    Private Const RANG As String = "A8:F18"
 
     Private Sub frmWorkExcel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnExplorarExcel.Enabled = False
@@ -22,33 +19,42 @@ Public Class frmWorkExcel
     End Sub
 
     Private Sub btnExplorarExcel_Click(sender As Object, e As EventArgs) Handles btnExplorarExcel.Click
-        Dim xlApp = New Excel.Application
-        Dim xlLlibre As Excel.Workbook
-        Dim xlFulla As Excel.Worksheet
+        mostrarValorCeles(RANG)
+    End Sub
 
-        Dim numColumnes As Integer
-        Dim numFiles As Integer
-        xlLlibre = xlApp.Workbooks.Open(tbRuta.Text, True, True, , "")
-        xlFulla = xlApp.Worksheets("Hoja1")
-        numColumnes = xlFulla.Columns.Count
-        numFiles = xlFulla.Rows.Count
 
-        Dim contingutCela As String
+    Sub mostrarValorCeles(Rang As String)
+        Dim xlApp As Excel.Application = Nothing
+        Dim xlWorkBooks As Excel.Workbooks = Nothing
+        Dim xlWorkBook As Excel.Workbook = Nothing
+        Dim xlWorkSheet As Excel.Worksheet = Nothing
+        Dim xlWorkSheets As Excel.Sheets = Nothing
+        Dim xlCells As Excel.Range = Nothing
+        xlApp = New Excel.Application
+        xlApp.DisplayAlerts = False
+        xlWorkBooks = xlApp.Workbooks
+        xlWorkBook = xlWorkBooks.Open(tbRuta.Text)
+        xlApp.Visible = False
+        xlWorkSheets = xlWorkBook.Sheets
 
-        For i As Integer = 1 To numColumnes
-            For j As Integer = 1 To numFiles
-                contingutCela = xlFulla.Range(i, j).Text.ToString()
-                lblContingutCela.Text = contingutCela
-            Next
-        Next
+        For Each c In xlWorkSheets(1).Range(Rang)
+            lblContingutCela.Text = c.Value
+        Next c
 
+        xlWorkBook.Close()
+        xlApp.UserControl = True
         xlApp.Quit()
-        xlLlibre.Close()
 
         xlApp = Nothing
-        xlLlibre = Nothing
-        xlFulla = Nothing
-
-
+        xlWorkBook = Nothing
+        xlWorkBooks = Nothing
+        xlWorkSheet = Nothing
+        xlWorkSheets = Nothing
     End Sub
+
+
 End Class
+
+'https://social.msdn.microsoft.com/Forums/en-US/2600a145-4bcb-436d-8e88-232b8f58d14b/edit-a-cell-in-spreadsheet-using-c?forum=csharpgeneral
+'https://www.e-iceblue.com/Tutorials/Spire.XLS/Spire.XLS-Program-Guide/NET-Edit-Excel-Edit-Excel-Data-in-C-and-VB.NET.html
+'https://social.msdn.microsoft.com/Forums/vstudio/en-US/48201825-ab5c-4759-b593-56889d13ff4b/vb-2012-reading-excel-worksheet-cell-values?forum=vbgeneral
