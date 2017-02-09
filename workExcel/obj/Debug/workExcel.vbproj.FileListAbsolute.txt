@@ -29,3 +29,18 @@ C:\Users\Moises\Documents\Visual Studio 2015\Projects\ExcelWorker\Excel-Worker\w
 C:\Users\Moises\Documents\Visual Studio 2015\Projects\ExcelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.frmWorkExcel.resources
 C:\Users\Moises\Documents\Visual Studio 2015\Projects\ExcelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.Resources.resources
 C:\Users\Moises\Documents\Visual Studio 2015\Projects\ExcelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.vbproj.GenerateResource.Cache
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\bin\Debug\workExcel.exe.config
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.vbproj.ResolveComReference.cache
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.exe
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.xml
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.pdb
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\Interop.VBIDE.dll
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\bin\Debug\workExcel.exe
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\bin\Debug\workExcel.pdb
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\bin\Debug\workExcel.xml
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.vbprojResolveAssemblyReference.cache
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.frmWorkExcel.resources
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.Resources.resources
+C:\Users\moise\OneDrive\Documentos\workspace\excelWorker\Excel-Worker\workExcel\obj\Debug\workExcel.vbproj.GenerateResource.Cache

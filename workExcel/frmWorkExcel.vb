@@ -1,5 +1,8 @@
 ﻿Imports Microsoft.Office.Interop
 Imports Microsoft.Office.Interop.Excel
+Imports System
+Imports System.IO
+Imports System.Collections
 
 Public Class frmWorkExcel
 
@@ -12,6 +15,7 @@ Public Class frmWorkExcel
     Private Sub btnExaminar_Click(sender As Object, e As EventArgs) Handles btnExaminar.Click
         Dim openFileDialog1 As New OpenFileDialog()
         openFileDialog1.Title = "Selecciona un fitxer"
+        openFileDialog1.Filter = "Documents de Excel (*.xls, *.xlsb, *.xlsm, *xlsx)|*.xls;*.xlsb;*.xlsm;*.xlsx |All Files (*.*)|*.*"
         If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             tbRuta.Text = openFileDialog1.FileName.ToString()
             btnExplorarExcel.Enabled = True
@@ -23,7 +27,7 @@ Public Class frmWorkExcel
     End Sub
 
 
-    Sub mostrarValorCeles(Rang As String)
+    Private Sub mostrarValorCeles(Rang As String)
         Dim xlApp As Excel.Application = Nothing
         Dim xlWorkBooks As Excel.Workbooks = Nothing
         Dim xlWorkBook As Excel.Workbook = Nothing
@@ -50,6 +54,22 @@ Public Class frmWorkExcel
         xlWorkBooks = Nothing
         xlWorkSheet = Nothing
         xlWorkSheets = Nothing
+    End Sub
+
+    Private Sub btnEscollirCarpeta_Click(sender As Object, e As EventArgs) Handles btnEscollirCarpeta.Click
+        Dim folderBrowserDialog As New FolderBrowserDialog()
+        If folderBrowserDialog.ShowDialog() = DialogResult.OK Then
+            tbRuta.Text = folderBrowserDialog.SelectedPath
+        End If
+    End Sub
+
+
+    Private Sub mostrarFitxersExcel(ruta As String, patterns As List(Of String))
+        Dim fitxers As New List(Of String)
+        Dim fileEntries As String() = Directory.GetFiles(ruta)
+        For Each pattern As String In patterns
+            fitxers.AddRange(Directory.GetFiles(ruta, pattern))
+        Next
     End Sub
 
 
