@@ -28,27 +28,29 @@ Partial Class frmWorkExcel
         Me.lblContingutCela = New System.Windows.Forms.Label()
         Me.btnEscollirCarpeta = New System.Windows.Forms.Button()
         Me.lblPath = New System.Windows.Forms.Label()
+        Me.lbFitxers = New System.Windows.Forms.ListBox()
+        Me.lblDeLlista = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'tbRuta
         '
-        Me.tbRuta.Location = New System.Drawing.Point(95, 80)
+        Me.tbRuta.Location = New System.Drawing.Point(95, 102)
         Me.tbRuta.Name = "tbRuta"
         Me.tbRuta.Size = New System.Drawing.Size(378, 20)
         Me.tbRuta.TabIndex = 0
         '
         'btnExaminar
         '
-        Me.btnExaminar.Location = New System.Drawing.Point(95, 22)
+        Me.btnExaminar.Location = New System.Drawing.Point(540, 161)
         Me.btnExaminar.Name = "btnExaminar"
-        Me.btnExaminar.Size = New System.Drawing.Size(75, 36)
+        Me.btnExaminar.Size = New System.Drawing.Size(149, 36)
         Me.btnExaminar.TabIndex = 1
         Me.btnExaminar.Text = "Escollir Fitxer"
         Me.btnExaminar.UseVisualStyleBackColor = True
         '
         'btnExplorarExcel
         '
-        Me.btnExplorarExcel.Location = New System.Drawing.Point(104, 130)
+        Me.btnExplorarExcel.Location = New System.Drawing.Point(540, 229)
         Me.btnExplorarExcel.Name = "btnExplorarExcel"
         Me.btnExplorarExcel.Size = New System.Drawing.Size(170, 35)
         Me.btnExplorarExcel.TabIndex = 2
@@ -58,7 +60,7 @@ Partial Class frmWorkExcel
         'lblContingutCela
         '
         Me.lblContingutCela.AutoSize = True
-        Me.lblContingutCela.Location = New System.Drawing.Point(184, 186)
+        Me.lblContingutCela.Location = New System.Drawing.Point(276, 379)
         Me.lblContingutCela.Name = "lblContingutCela"
         Me.lblContingutCela.Size = New System.Drawing.Size(39, 13)
         Me.lblContingutCela.TabIndex = 3
@@ -66,9 +68,9 @@ Partial Class frmWorkExcel
         '
         'btnEscollirCarpeta
         '
-        Me.btnEscollirCarpeta.Location = New System.Drawing.Point(199, 22)
+        Me.btnEscollirCarpeta.Location = New System.Drawing.Point(240, 31)
         Me.btnEscollirCarpeta.Name = "btnEscollirCarpeta"
-        Me.btnEscollirCarpeta.Size = New System.Drawing.Size(75, 36)
+        Me.btnEscollirCarpeta.Size = New System.Drawing.Size(115, 36)
         Me.btnEscollirCarpeta.TabIndex = 4
         Me.btnEscollirCarpeta.Text = "Escollir Carpeta"
         Me.btnEscollirCarpeta.UseVisualStyleBackColor = True
@@ -76,17 +78,36 @@ Partial Class frmWorkExcel
         'lblPath
         '
         Me.lblPath.AutoSize = True
-        Me.lblPath.Location = New System.Drawing.Point(50, 87)
+        Me.lblPath.Location = New System.Drawing.Point(50, 102)
         Me.lblPath.Name = "lblPath"
         Me.lblPath.Size = New System.Drawing.Size(39, 13)
         Me.lblPath.TabIndex = 5
         Me.lblPath.Text = "PATH:"
         '
+        'lbFitxers
+        '
+        Me.lbFitxers.FormattingEnabled = True
+        Me.lbFitxers.Location = New System.Drawing.Point(95, 161)
+        Me.lbFitxers.Name = "lbFitxers"
+        Me.lbFitxers.Size = New System.Drawing.Size(378, 199)
+        Me.lbFitxers.TabIndex = 6
+        '
+        'lblDeLlista
+        '
+        Me.lblDeLlista.AutoSize = True
+        Me.lblDeLlista.Location = New System.Drawing.Point(95, 142)
+        Me.lblDeLlista.Name = "lblDeLlista"
+        Me.lblDeLlista.Size = New System.Drawing.Size(158, 13)
+        Me.lblDeLlista.TabIndex = 7
+        Me.lblDeLlista.Text = "Selecciona els fitxers de la llista:"
+        '
         'frmWorkExcel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 261)
+        Me.ClientSize = New System.Drawing.Size(722, 404)
+        Me.Controls.Add(Me.lblDeLlista)
+        Me.Controls.Add(Me.lbFitxers)
         Me.Controls.Add(Me.lblPath)
         Me.Controls.Add(Me.btnEscollirCarpeta)
         Me.Controls.Add(Me.lblContingutCela)
@@ -106,4 +127,6 @@ Partial Class frmWorkExcel
     Friend WithEvents lblContingutCela As Label
     Friend WithEvents btnEscollirCarpeta As Button
     Friend WithEvents lblPath As Label
+    Friend WithEvents lbFitxers As ListBox
+    Friend WithEvents lblDeLlista As Label
 End Class

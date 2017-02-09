@@ -7,9 +7,15 @@ Imports System.Collections
 Public Class frmWorkExcel
 
     Private Const RANG As String = "A8:F18"
+    Private fitxersObjectiu As List(Of String)
 
     Private Sub frmWorkExcel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnExplorarExcel.Enabled = False
+        fitxersObjectiu = New List(Of String)
+        lbFitxers.Items.Clear()
+        lbFitxers.SelectionMode = SelectionMode.MultiExtended
+        lbFitxers.Refresh()
+
     End Sub
 
     Private Sub btnExaminar_Click(sender As Object, e As EventArgs) Handles btnExaminar.Click
@@ -23,7 +29,11 @@ Public Class frmWorkExcel
     End Sub
 
     Private Sub btnExplorarExcel_Click(sender As Object, e As EventArgs) Handles btnExplorarExcel.Click
-        mostrarValorCeles(RANG)
+        'mostrarValorCeles(RANG)
+        getSelectedItems()
+        For Each fitxer In fitxersObjectiu
+            lblContingutCela.Text += fitxer
+        Next
     End Sub
 
 
@@ -58,11 +68,45 @@ Public Class frmWorkExcel
 
     Private Sub btnEscollirCarpeta_Click(sender As Object, e As EventArgs) Handles btnEscollirCarpeta.Click
         Dim folderBrowserDialog As New FolderBrowserDialog()
+        Dim path As String = ""
+        Dim formats As New List(Of String)
+        Dim llistaFitxers As New List(Of String)
+        formats.Add("*.xls")
+        formats.Add("*.xlsb")
+        formats.Add("*.xlsm")
+        formats.Add("*.xlsx")
+
+
         If folderBrowserDialog.ShowDialog() = DialogResult.OK Then
-            tbRuta.Text = folderBrowserDialog.SelectedPath
+            btnExplorarExcel.Enabled = True
+            lbFitxers.Items.Clear()
+            lbFitxers.Refresh()
+            path = folderBrowserDialog.SelectedPath
+            llistaFitxers = getXls(path, formats)
+            tbRuta.Text = path
+            For Each fitxer As String In llistaFitxers
+                lbFitxers.Items.Add(fitxer)
+            Next
         End If
     End Sub
 
+
+    Private Function getXls(ruta As String, patterns As List(Of String)) As List(Of String)
+        Dim fitxers As New List(Of String)
+        Dim fileEntries As String() = Directory.GetFiles(ruta)
+        For Each pattern As String In patterns
+            fitxers.AddRange(Directory.GetFiles(ruta, pattern))
+        Next
+        Return fitxers
+    End Function
+
+    Private Sub getSelectedItems()
+        For i = 0 To lbFitxers.Items.Count - 1
+            If lbFitxers.GetSelected(i) = True Then
+                fitxersObjectiu.Add(lbFitxers.Items(i))
+            End If
+        Next i
+    End Sub
 
     Private Sub mostrarFitxersExcel(ruta As String, patterns As List(Of String))
         Dim fitxers As New List(Of String)
